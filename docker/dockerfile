@@ -1,0 +1,9 @@
+FROM python:latest
+
+WORKDIR /usr/app/src
+
+COPY py_script.py ./py_script.py 
+
+RUN pip install pandas glob2
+
+
