@@ -1,0 +1,22 @@
+#building Image
+docker image build -t python:0.0.1 .
+
+#running container
+docker run --name test1 -t -d -v /Users/mohammadumaid/WeCloudData/docker/input:/usr/app/src/input -v /Users/mohammadumaid/WeCloudData/docker/output:/usr/app/src/output -e INPUT_DIR='input' -e OUTPUT_DIR='output' python:0.0.1
+
+#executing container
+docker exec -i -t test1 python py_script.py 
+
+#listing containers 
+docker container ls
+
+
+
+
+
+#deleting all continers
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+
+# deleting image
+docker image rm python:0.0.1
